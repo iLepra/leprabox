@@ -1,0 +1,44 @@
+{
+  "name": "leprabox",
+  "preferGlobal": true,
+  "version": "0.1.0",
+  "author": "Tim Ermilov <yamalight@gmail.com>",
+  "description": "Leprabox mobile leprosorium client",
+  "bin": "./bin/leprabox",
+  "scripts": {
+    "start": "node ./bin/leprabox",
+    "test": "./node_modules/.bin/grunt test",
+    "postinstall": "bower install && ./node_modules/.bin/grunt build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iLepra/leprabox.git"
+  },
+  "keywords": [
+    "lepra",
+    "client",
+    "mobile"
+  ],
+  "dependencies": {
+    "express": "*",
+    "passport": "*",
+    "colors": "*",
+    "optimist": "*",
+    "portfinder": "*",
+    "lepralib": "git://github.com/iLepra/iLepra-jslib.git",
+    "consolidate": "~0.10.0",
+    "dustjs-helpers": "~1.1.1",
+    "dustjs-linkedin": "~2.2.2",
+    "connect-session-store": "0.0.1",
+    "bower": "~1.2.8"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-cli": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-copy": "*"
+  }
+}

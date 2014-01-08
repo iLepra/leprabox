@@ -1,0 +1,15 @@
+{
+  "name": "leprabox",
+  "version": "0.1.0",
+  "main": "public/css/main.css",
+  "directory": "public/bower_components",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3",
+    "jquery-mobile": "~1.4.0"
+  },
+  "devDependencies": {}
+}
