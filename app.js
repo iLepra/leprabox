@@ -32,8 +32,8 @@ app.use(express.session({
 
 // Initialize Passport!  Also use passport.session() middleware, to support
 // persistent login sessions (recommended).
-//app.use(passport.initialize());
-//app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // parse request bodies (req.body)
 app.use(express.json());
@@ -41,6 +41,17 @@ app.use(express.urlencoded());
 
 // support _method (PUT in forms etc)
 app.use(express.methodOverride());
+
+// locals
+app.use(function(req, res, next) {
+    var render = res.render;
+    res.render = function(view, locals, cb) {
+        if (typeof locals === 'object') locals.debug = config.debug;
+        if (locals === undefined) locals = { debug: config.debug };
+        render.call(res, view, locals, cb);
+    };
+    next();
+});
 
 // load controllers
 require('./lib/boot')(app, { verbose: !module.parent });

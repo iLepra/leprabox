@@ -1,3 +1,6 @@
+// if debug is enabled
+exports.debug = true;
+
 // cookies stuff
 exports.sidSalt = 'initMe';
 exports.cookieParserSalt = 'initMeToo';
