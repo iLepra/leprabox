@@ -91,14 +91,30 @@ module.exports = function(grunt) {
                 }
             },
         },
+
+        // bower install
+        bower: {
+            build: {
+                install: {}
+            }
+        },
+
+        // shell stuff
+        shell: {
+            build: {
+                command: 'cd public/bower_components/jquery-mobile && npm install && grunt'
+            }
+        }
     });
 
     // load extensions
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-bower-task');
+    grunt.loadNpmTasks('grunt-shell');
 
     // define the tasks
-    grunt.registerTask('build', 'Copies config if needed', ['copy']);
+    grunt.registerTask('build', 'Copies config if needed', ['copy', 'bower', 'shell']);
 
     // Default task(s).
     //grunt.registerTask('default', ['jshint']);

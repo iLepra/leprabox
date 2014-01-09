@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node ./bin/leprabox",
     "test": "./node_modules/.bin/grunt test",
-    "postinstall": "bower install && ./node_modules/.bin/grunt build"
+    "postinstall": "./node_modules/.bin/grunt build"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,8 @@
     "grunt": "*",
     "grunt-cli": "*",
     "grunt-contrib-jshint": "*",
-    "grunt-contrib-copy": "*"
+    "grunt-contrib-copy": "*",
+    "grunt-bower-task": "~0.3.4",
+    "grunt-shell": "~0.6.1"
   }
 }
