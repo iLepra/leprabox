@@ -82,7 +82,7 @@ module.exports = function(grunt) {
 
         // copy config
         copy: {
-            build: {
+            init: {
                 src: 'config.example.js',
                 dest: 'config.js',
                 filter: function(filepath) {
@@ -94,15 +94,27 @@ module.exports = function(grunt) {
 
         // bower install
         bower: {
-            build: {
+            init: {
                 install: {}
             }
         },
 
         // shell stuff
         shell: {
-            build: {
+            init: {
                 command: 'cd public/bower_components/jquery-mobile && npm install && grunt'
+            }
+        },
+
+        // requirejs
+        requirejs: {
+            build: {
+                options: {
+                    baseUrl: 'public/js',
+                    mainConfigFile: 'public/js/config.js',
+                    name: 'app',
+                    out: 'public/js/app.min.js'
+                }
             }
         }
     });
@@ -110,11 +122,13 @@ module.exports = function(grunt) {
     // load extensions
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-shell');
 
     // define the tasks
-    grunt.registerTask('build', 'Copies config if needed', ['copy', 'bower', 'shell']);
+    grunt.registerTask('init', 'Initializes app configs and libraries', ['copy', 'bower', 'shell']);
+    grunt.registerTask('build', 'Builds and minimizes stuff', ['requirejs']);
 
     // Default task(s).
     //grunt.registerTask('default', ['jshint']);

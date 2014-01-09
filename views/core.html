@@ -2,7 +2,12 @@
 <html>
 <head>
     <title>{+title}7th-Degree{/title}</title>
+    {?debug}
     <script data-main="js/app" src="bower_components/requirejs/require.js"></script>
+    <script src="js/config.js"></script>
+    {:else}
+    <script src="js/app.min.js"></script>
+    {/debug}
 </head>
 <body>
     {+body/}

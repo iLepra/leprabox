@@ -1,2 +1,4 @@
 node_modules/
 public/bower_components/
+sessions/*
+public/js/app.min.js

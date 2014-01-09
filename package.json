@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node ./bin/leprabox",
     "test": "./node_modules/.bin/grunt test",
-    "postinstall": "./node_modules/.bin/grunt build"
+    "postinstall": "./node_modules/.bin/grunt init"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,8 @@
     "dustjs-helpers": "~1.1.1",
     "dustjs-linkedin": "~2.2.2",
     "connect-session-store": "0.0.1",
-    "bower": "~1.2.8"
+    "bower": "~1.2.8",
+    "requirejs": "~2.1.10"
   },
   "engines": {
     "node": ">=0.10"
@@ -41,6 +42,7 @@
     "grunt-contrib-jshint": "*",
     "grunt-contrib-copy": "*",
     "grunt-bower-task": "~0.3.4",
-    "grunt-shell": "~0.6.1"
+    "grunt-shell": "~0.6.1",
+    "grunt-contrib-requirejs": "~0.4.1"
   }
 }
