@@ -12,10 +12,10 @@ var app = module.exports = express();
 
 // settings
 // map .renderFile to ".html" files
-app.engine('html', cons.dust);
+app.engine('dust', cons.dust);
 
-// make ".html" the default
-app.set('view engine', 'html');
+// make ".dust" the default
+app.set('view engine', 'dust');
 
 // set views for error and 404 pages
 app.set('views', __dirname + '/views');

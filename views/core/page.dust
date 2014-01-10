@@ -1,0 +1,9 @@
+<div data-role="page">
+    <div data-role="header">
+        <h2>{+header}iLepra{/header}</h2>
+    </div>
+
+    <div role="main" class="ui-content">
+        {+content/}
+    </div>
+</div>

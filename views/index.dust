@@ -1,0 +1,25 @@
+{>"core/layout.dust"/}
+{<title}
+    Child Title
+{/title}
+{<body}
+    {>"core/page.dust"/}
+    {<header}
+        iLepra
+    {/header}
+    {<content}
+        <div style="text-align: center;">
+            <img src="img/icon.png" />
+        </div>
+
+        <form action="/auth" method="post" data-ajax="false">
+            <input type="text" name="username" id="username" placeholder="Логин" autocorrect="off" autocapitalize="off"/>
+
+            <input type="password" name="pass" id="pass" placeholder="Пароль"/>
+
+            <br/>
+
+            <button type="submit" href="#" id="loginButton" data-role="button">Yarr!</button>
+        </form>
+    {/content}
+{/body}
