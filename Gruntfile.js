@@ -108,7 +108,7 @@ module.exports = function(grunt) {
 
             // build
             build: {
-                command: 'ln -s public/bower_components/jquery-mobile/dist/images public/css/images'
+                command: 'cp -r public/bower_components/jquery-mobile/dist/images public/css/'
             }
         },
 
