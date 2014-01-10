@@ -43,6 +43,7 @@
     "grunt-contrib-copy": "*",
     "grunt-bower-task": "~0.3.4",
     "grunt-shell": "~0.6.1",
-    "grunt-contrib-requirejs": "~0.4.1"
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-cssmin": "~0.7.0"
   }
 }

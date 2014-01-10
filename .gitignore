@@ -3,3 +3,4 @@ public/bower_components/
 sessions/*
 public/js/app.min.js
 config.js
+public/css/main.min.css

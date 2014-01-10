@@ -116,6 +116,18 @@ module.exports = function(grunt) {
                     out: 'public/js/app.min.js'
                 }
             }
+        },
+
+        // css compression
+        cssmin: {
+            build: {
+                files: {
+                    'public/css/main.min.css': [
+                        'public/css/main.css',
+                        'public/bower_components/jquery-mobile/dist/jquery.mobile.min.css'
+                    ]
+                }
+            }
         }
     });
 
@@ -123,12 +135,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-shell');
 
     // define the tasks
     grunt.registerTask('init', 'Initializes app configs and libraries', ['copy', 'bower', 'shell']);
-    grunt.registerTask('build', 'Builds and minimizes stuff', ['requirejs']);
+    grunt.registerTask('build', 'Builds and minimizes stuff', ['requirejs', 'cssmin']);
 
     // Default task(s).
     //grunt.registerTask('default', ['jshint']);
