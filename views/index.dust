@@ -17,6 +17,9 @@
 
             <input type="password" name="pass" id="pass" placeholder="Пароль"/>
 
+            <input type="checkbox" name="remember" id="remember">
+            <label for="remember">Запомните меня</label>
+
             <br/>
 
             <button type="submit" href="#" id="loginButton" data-role="button">Yarr!</button>
