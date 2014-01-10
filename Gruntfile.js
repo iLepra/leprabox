@@ -101,8 +101,14 @@ module.exports = function(grunt) {
 
         // shell stuff
         shell: {
+            // init
             init: {
                 command: 'cd public/bower_components/jquery-mobile && npm install && grunt'
+            },
+
+            // build
+            build: {
+                command: 'ln -s public/bower_components/jquery-mobile/dist/images public/css/images'
             }
         },
 
@@ -140,8 +146,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-shell');
 
     // define the tasks
-    grunt.registerTask('init', 'Initializes app configs and libraries', ['copy', 'bower', 'shell']);
-    grunt.registerTask('build', 'Builds and minimizes stuff', ['requirejs', 'cssmin']);
+    grunt.registerTask('init', 'Initializes app configs and libraries', ['copy', 'bower', 'shell:init']);
+    grunt.registerTask('build', 'Builds and minimizes stuff', ['shell:build', 'requirejs', 'cssmin']);
 
     // Default task(s).
     //grunt.registerTask('default', ['jshint']);
