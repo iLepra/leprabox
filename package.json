@@ -26,12 +26,15 @@
     "optimist": "*",
     "portfinder": "*",
     "lepralib": "git://github.com/iLepra/iLepra-jslib.git",
-    "consolidate": "~0.10.0",
-    "dustjs-helpers": "~1.1.1",
-    "dustjs-linkedin": "~2.2.2",
-    "connect-session-store": "0.0.1",
-    "bower": "~1.2.8",
-    "requirejs": "~2.1.10"
+    "consolidate": "*",
+    "dustjs-helpers": "*",
+    "dustjs-linkedin": "*",
+    "bower": "*",
+    "requirejs": "*",
+    "connect-mongo": "*",
+    "mongoose": "*",
+    "connect-flash": "*",
+    "passport-local": "*"
   },
   "engines": {
     "node": ">=0.10"
@@ -41,9 +44,9 @@
     "grunt-cli": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-copy": "*",
-    "grunt-bower-task": "~0.3.4",
-    "grunt-shell": "~0.6.1",
-    "grunt-contrib-requirejs": "~0.4.1",
-    "grunt-contrib-cssmin": "~0.7.0"
+    "grunt-bower-task": "*",
+    "grunt-shell": "*",
+    "grunt-contrib-requirejs": "*",
+    "grunt-contrib-cssmin": "*"
   }
 }

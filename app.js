@@ -1,8 +1,9 @@
 // includes
 var express = require('express'),
+    flash = require('connect-flash'),
     passport = require('passport'),
     config = require('./config'),
-    SessionStore = require('connect-session-store'),
+    MongoStore = require('connect-mongo')(express),
     dust = require('dustjs-linkedin'),
     cons = require('consolidate');
 
@@ -27,13 +28,16 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.cookieParser(config.cookieParserSalt));
 app.use(express.session({
     secret: config.cookieParserSalt + config.sidSalt,
-    store: new SessionStore(config.sessionOptions)
+    store: new MongoStore(config.sessionDb)
 }));
 
 // Initialize Passport!  Also use passport.session() middleware, to support
 // persistent login sessions (recommended).
 app.use(passport.initialize());
 app.use(passport.session());
+
+// use flash messaging
+app.use(flash());
 
 // parse request bodies (req.body)
 app.use(express.json());

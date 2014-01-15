@@ -1,0 +1,55 @@
+{>"core/layout.dust"/}
+{<title}
+    iLepra - Регистрация
+{/title}
+{<menu}
+    <li class="active"><a href="#">Регистрация</a></li>
+{/menu}
+{<body}
+    {>"core/page.dust"/}
+    {<content}
+        <div class="jumbotron">
+            <h2>Привет, %username%!</h2>
+            <p>
+            Похоже, что это твой первый запуск iLepra.<br/>
+            Чтобы ей пользоваться, сначала надо создать специальный iLepra аккаунт.<br/>
+            Просто заполни форму ниже и нажми на Yarr!
+            </p>
+        </div>
+
+        {#error}
+        <div class="alert alert-danger">{error}</div>
+        {/error}
+
+        <form action="/api/register" method="post" class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="username" class="col-sm-2 control-label">Логин</label>
+                <div class="col-sm-10">
+                    <input type="text" name="username" id="username" placeholder="Логин" autocorrect="off" autocapitalize="off" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="pass" class="col-sm-2 control-label">Пароль</label>
+                <div class="col-sm-10">
+                    <input type="password" name="pass" id="pass" placeholder="Пароль" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="passCheck" class="col-sm-2 control-label">Пароль</label>
+                <div class="col-sm-10">
+                    <input type="password" name="passCheck" id="passCheck" placeholder="Пароль еще раз" class="form-control"/>
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" href="#" id="registerButton" class="btn btn-primary btn-lg" style="width: 100%;">Yarr!</button>
+                </div>
+            </div>
+        </form>
+    {/content}
+{/body}

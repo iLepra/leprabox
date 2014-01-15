@@ -9,13 +9,10 @@ exports.cookieSecret = 'andMeToo';
 // default app port
 exports.defaultPort = 8080;
 
+// default db
+exports.db = 'mongodb://localhost/leprabox';
+
 // session config
-exports.sessionOptions = {
-    storeType: 'file',
-    storeOptions: {
-        path: './sessions/',
-        useAsync: true,
-        reapInterval: 5000,
-        maxAge: 100000
-    }
+exports.sessionDb = {
+    url: exports.db
 };

@@ -1,28 +1,16 @@
 {>"core/layout.dust"/}
 {<title}
-    Child Title
+    iLepra - Главная
 {/title}
+{<menu}
+    <li class="active"><a href="#">Главная</a></li>
+    <li><a href="#">Выход</a></li>
+{/menu}
 {<body}
     {>"core/page.dust"/}
-    {<header}
-        iLepra
-    {/header}
     {<content}
-        <div style="text-align: center;">
-            <img src="img/icon.png" />
+        <div class="jumbotron">
+            <h2>Вы внутри, %username%!</h2>
         </div>
-
-        <form action="/auth" method="post" data-ajax="false">
-            <input type="text" name="username" id="username" placeholder="Логин" autocorrect="off" autocapitalize="off"/>
-
-            <input type="password" name="pass" id="pass" placeholder="Пароль"/>
-
-            <input type="checkbox" name="remember" id="remember">
-            <label for="remember">Запомните меня</label>
-
-            <br/>
-
-            <button type="submit" href="#" id="loginButton" data-role="button">Yarr!</button>
-        </form>
     {/content}
 {/body}

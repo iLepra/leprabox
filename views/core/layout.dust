@@ -19,7 +19,7 @@
     <script src="js/config.js"></script>
 
     <!-- styles -->
-    <link rel="stylesheet"  href="bower_components/jquery-mobile/dist/jquery.mobile.min.css" />
+    <link rel="stylesheet"  href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet"  href="css/main.css" />
     {:else}
     <script src="js/app.min.js"></script>
@@ -27,6 +27,25 @@
     {/debug}
 </head>
 <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Навигация</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">iLepra</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    {+menu/}
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+
     {+body/}
 </body>
 </html>

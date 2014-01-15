@@ -8,9 +8,9 @@
     "**/*.txt"
   ],
   "dependencies": {
-    "jquery": "~2.0.3",
-    "jquery-mobile": "~1.4.0",
-    "requirejs": "~2.1.10"
+    "jquery": "*",
+    "requirejs": "*",
+    "bootstrap": "*"
   },
   "devDependencies": {}
 }

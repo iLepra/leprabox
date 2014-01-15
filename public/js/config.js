@@ -2,9 +2,11 @@
 requirejs.config({
     paths: {
         'jquery': '../bower_components/jquery/jquery.min',
-        'jquerymobile': '../bower_components/jquery-mobile/dist/jquery.mobile.min',
+        'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min',
+        'requireLib': '../bower_components/requirejs/require',
     },
     shim: {
-        'jquerymobile': ['jquery'],
-    }
+        'bootstrap': ['jquery'],
+    },
+    include: ["requireLib"],
 });
