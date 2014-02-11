@@ -1,14 +1,18 @@
 // includes
+// db
 var User = require('../../db/user').User;
+var LeprAcc = require('../../db/lepracc').LeprAcc;
+// passport
 var passport = require('passport');
 var passportLocal = require('passport-local');
+// lepralib
+var lepralib = require('lepralib');
 
 // make passport policy
 var LocalStrategy = passportLocal.Strategy;
 passport.use(new LocalStrategy(
     function (username, password, done) {
         User.findOne({user: username}, function(err, user) {
-            console.log(user, user.password, password);
             if (err) return done(err);
             if (!user) return done(null, false);
             if (user.password !== password) return done(null, false);
@@ -17,7 +21,7 @@ passport.use(new LocalStrategy(
     }
 ));
 passport.serializeUser(function(user, done) {
-    done(null, user.id);
+    done(null, user._id);
 });
 passport.deserializeUser(function(id, done) {
     User.findOne({_id: id}, function(err, user) {
@@ -81,6 +85,40 @@ exports.login = {
                 return res.redirect('/');
             });
         })(req, res, next);
+    }
+};
+
+exports.linklepra = {
+    path: '/api/linklepra',
+    method: 'post',
+    returns: function(req, res, next){
+        var loginData = {
+            user: req.body.username,
+            pass: req.body.pass,
+            captcha: req.body.captcha,
+            save: 1
+        };
+
+        // try logging in
+        lepralib.tryLogin(loginData, function(success) {
+            if(success) {
+                var lepraccModel = new LeprAcc({
+                    user: req.user,
+                    cookie: lepralib.cookies
+                });
+                lepraccModel.save(function(err){
+                    if (err) {
+                        return next(err);
+                    } else {
+                        // if all is OK, redirect to main
+                        return res.redirect('/main');
+                    }
+                });
+            } else {
+                req.flash('error', lepralib.errorMessage);
+                return res.redirect('/linklepra');
+            }
+        });
     }
 };
 
