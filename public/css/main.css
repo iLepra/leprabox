@@ -1,5 +1,5 @@
 body {
-  padding-top: 50px;
+  padding-top: 60px;
 }
 
 .captcha {
@@ -10,4 +10,28 @@ body {
 
 .captcha img {
     max-width: 90%;
+}
+
+.post {
+    /*background-color: #eee;*/
+    margin-bottom: 40px;
+    padding: 10px;
+}
+
+.post .body {
+    font-size: 120%;
+}
+
+.post .info {
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.post .image {
+    text-align: center;
+}
+
+.post .image img {
+    max-width:100%;
 }

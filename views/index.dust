@@ -9,8 +9,37 @@
 {<body}
     {>"core/page.dust"/}
     {<content}
-        <div class="jumbotron">
-            <h2>Вы внутри, %username%!</h2>
+        {#posts}
+        <div class="row post" data-id="{id}">
+            <div class="row">
+                {?body}
+                    {?image}
+                        <div class="col-sm-4 col-md-5 image"><img src="{image}"></div>
+                        <div class="col-sm-8 col-md-7 body">{body|s}</div>
+                    {:else}
+                        <div class="col-md-12 body">{body|s}</div>
+                    {/image}
+                {:else}
+                    <div class="col-md-12 image"><img src="{image}"></div>
+                {/body}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="info">{?domain_url}<a href="http://{domain_url}">{domain_url}</a> | {/domain_url}{when}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table" style="width:auto; float:right;">
+                        <tr>
+                            <td><b><span class="glyphicon glyphicon-user"></span> {user}</b></td>
+                            <td><span class="glyphicon glyphicon-comment"></span> {comments}</td>
+                            <td><span class="glyphicon glyphicon-star"></span> {rating}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
+        {/posts}
     {/content}
 {/body}
